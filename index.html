@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-family:'Poppins',Sans-Serif;
+    }
+
+    body{
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background: black;
+        flex-direction: column;
+    }
+    .page{
+        background: none;
+        width: 300px;
+        height: 30px;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        box-shadow: 0 0 10px #000 inset;
+        overflow: hidden;
+
+    }
+    #load {
+        background: linear-gradient(90deg, #0fff, lightblue,
+        #00ffcc);
+        height: 30px;
+        border-radius: 20px;
+        width: 20px;
+        background-size: 200px, 100px;
+        box-shadow: 0 0 10px #00ffcc, 0 0 10px #00ffcc, 0 0 10px #fff inset;
+        animation: load 10s infinite linear;
+        position: relative;
+    }
+    label{
+        position: absolute;
+        color:#fff;
+        transform: translateY(-50%);
+        top: 46.6%;
+        text-transform: uppercase;
+        left: 43%;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-shadow: 0 0 5px #00ffcc;
+    }
+    button{
+        margin: 15px 0 0;
+        width: 100px;
+        height: 30px;
+        border-radius: 50px;
+        outline: none;
+        border: 2px solid #00ffcc;
+        background: #00ffcc;
+        color: #fff;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow: 0 0 10px #00ffcc,0 0 10px #00ffcc;
+        font-weight: 700;
+        cursor: pointer ;
+    }
+    button:hover{
+        background: #00ffcc;
+        box-shadow: 0 0 10px #fff, 0 0 10px #fff;
+    }
+    button:active{
+        background: linear-gradient(90deg,#0fff,#00ffcc);
+         color: #000;
+        animation: btn 3s linear;
+    }
+    @keyframes btn {
+        0%{
+            transform: translateX(0px);
+        }
+        100%{
+            transform: translateX(20px);
+        }
+    }
+    @keyframes load {
+        0%{
+            width: 0;
+        }
+        100%{
+            width: 300px;
+        }
+    }
+</style>
+<body>
+
+ <div class="page">
+     <div id="load"></div>
+     <label >Loding Bar...</label>
+ </div>
+ <button onclick="btn()"> Click </button>
+ <script>
+     const colors =['white','black'];
+     const text =['black','white'];
+     function btn() {
+         const bbt = text[Math.floor(Math.random() * text.length)];
+         const randomC = colors[Math.floor(Math.random() * colors.length)];
+         document.body.style.backgroundColor = randomC;
+         document.querySelector('label').style.color = bbt;
+ </script>
+</body>
+</html>
